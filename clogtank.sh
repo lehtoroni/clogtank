@@ -88,6 +88,6 @@ rm temp.png
 #
 # Print the file
 #
-lp -o fit-to-page temp.jpg
+lp -o fit-to-page -d $1 temp.jpg
 
 echo "All done! (I hope!)"
