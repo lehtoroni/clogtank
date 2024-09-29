@@ -24,6 +24,14 @@ Tested on a network EcoTank with the following command:
 ./clogtank.sh EPSON_ET_2870_Series
 ```
 
+**If for some reason your CUPS will not print the jpeg directly,**
+you can give "pdf" as the second argument:
+```bash
+./clogtank.sh cups_printer_id_here pdf
+```
+
+To use this, you will probably have to [allow PDF modifications in ImageMagick's security policy](https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion).
+
 ## Example of installation
 Run `crontab -e` to edit your Cron jobs.
 Then add the following line:
@@ -35,6 +43,13 @@ This will print a random page every 3 days at 15:00.
 ## Word of caution
 **ImageMagick and Cups might work differently based on the installed version.**
 Go ahead and modify the script parameters for your need, if it doesn't work at first!
+
+## Troubleshooting: Print as PDF instead of JPG?
+On my server, the jpeg does not get printed. The printer just wakes up and does nothing.
+Thus, there is the option to print the image as a pdf.
+
+Just uncomment these lines:
+
 
 ## What does it do?
 

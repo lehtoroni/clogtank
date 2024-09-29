@@ -85,9 +85,15 @@ done
 convert temp.png temp.jpg
 rm temp.png
 
+
 #
 # Print the file
 #
-lp -o fit-to-page -d $1 temp.jpg
+if [ $2 = "pdf" ]; then
+    convert temp.jpg -auto-orient temp.pdf
+    lp -d $1 temp.pdf
+else
+    lp -o fit-to-page -d $1 temp.jpg
+fi
 
 echo "All done! (I hope!)"
