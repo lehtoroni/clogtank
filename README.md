@@ -5,6 +5,8 @@ Do you not print often enough, thus your printheads get clogged, and you reduce 
 
 Here, take **clogtank.sh**, a Bash script which generates a simple image with many colors and prints it with the given printer. Just add it to a cronjob, remember to keep paper loaded to your printer, and never have a clogged printhead again! (Hopefully!)
 
+**🔔 Update on August 10th 2025**: I changed the script to only generate all of the CMYK colors, because even after printing the patterns every 3 days, my personal EcoTank kept clogging... (a printer producer wouldn't programmatically make their printer produce white stripes, would they...?)
+
 ## Requirements
 - **Bash** on Linux (might work on WSL too?)
     - Tested to work on `Debian 6.1.106-3`
@@ -48,16 +50,14 @@ Go ahead and modify the script parameters for your need, if it doesn't work at f
 On my server, the jpeg does not get printed. The printer just wakes up and does nothing.
 Thus, there is the option to print the image as a pdf.
 
-Just uncomment these lines:
-
+Just provide `pdf` as the second parameter to the script (i.e. `./clogtank.sh printer_id pdf`).
 
 ## What does it do?
 
 Below is an example of the produced image.
-The script generates some noise, masks it with other noise,
-and overlays the current timestamp in many colors on top.
+The script generates color patterns and masks it with some pixelated noise.
 
-Then the script sends the image to your chosen printer via `lp`,
+Then it sends the image to your chosen printer via `lp`,
 and requests the image to be fit to the page.
 
 The idea is that by printing all colors often enough,
@@ -67,7 +67,7 @@ Does this waste a lot of ink? Honestly, I'm not concerned of that. After printin
 
 And afterall, less head cleanings means less money spent on a maintenance box or a new printer in the future, even if a few A4 sheets were wasted in the process.
 
-<img src="https://lehtodigital.fi/f/awy0n" style="width: 300px;">
+<img src="https://lehtodigital.fi/f/twg8x" style="width: 300px;">
 
 # License
 The script is licensed under the MIT license.
